@@ -5,7 +5,7 @@ var client = {
     datePermis: 3,
     tarif: "",
     nombreAccident: ,
-    nbAnne: 2
+    nbAnne: 10
 };
 
 function Agence(membre) {
@@ -16,6 +16,7 @@ function Agence(membre) {
         4: "rouge"
     };
     var refus = "vous n'avez pas accès à un tarif";
+    var bonus = "vous avez eu un bonus";
     // var conditions = {
     //     1: {
     //         age: 25,
@@ -40,8 +41,17 @@ function Agence(membre) {
     //     }
     // }
 
-    if(membre.nbAnne >= 5){
-        
+    if (membre.nbAnne >= 5) {
+        if (membre.tarif == "vert") {
+            membre.tarif = "bleu";
+            return bonus;
+        } else if (membre.tarif == "orange") {
+            membre.tarif = "vert";
+            return bonus;
+        } else if (membre.tarif == "rouge") {
+            membre.tarif = "orange";
+            return bonus;
+        }
     }
 
     if (membre.age <= 25) {
