@@ -1,10 +1,10 @@
 var client = {
-    age: 18,
+    age: 26,
     permis: true,
-    accident: false,
-    datePermis: 2,
+    accident: true,
+    datePermis: 3,
     tarif: "",
-    nombreAccident: 0,
+    nombreAccident: ,
     nbAnne: 2
 };
 
@@ -44,17 +44,17 @@ function Agence(membre) {
         if (membre.permis) {
             if (membre.datePermis <= 2) {
                 if (!membre.accident) {
-                    membre.tarif = tarifs[3];
+                    membre.tarif = tarifs[4];
                     return "vous avez accès au tarif rouge";
                 } else {
                     return refus;
                 }
             } else if (membre.datePermis > 2) {
                 if (!membre.accident) {
-                    membre.tarif = tarifs[2];
+                    membre.tarif = tarifs[3];
                     return "vous avez accès au tarif orange";
                 } else if (membre.accident && membre.nombreAccident == 1) {
-                    membre.tarif = tarifs[3];
+                    membre.tarif = tarifs[4];
                     return "vous avez accès au tarif rouge";
 
                 } else {
@@ -66,16 +66,27 @@ function Agence(membre) {
     } else if (membre.age > 25) {
         if (membre.datePermis > 2) {
             if (!membre.accident && membre.nombreAccident == 0) {
-                membre.tarif = tarifs[1];
+                membre.tarif = tarifs[2];
                 return "vous avez accès au tarif Vert";
             } else if (membre.accident && membre.nombreAccident == 1) {
-                membre.tarif = tarifs[2];
+                membre.tarif = tarifs[3];
                 return "vous avez accès au tarif Orange";
 
             } else if (membre.accident && membre.nombreAccident == 2) {
-                membre.tarif = tarifs[3];
+                membre.tarif = tarifs[4];
                 return "vous avez accès au tarif Rouge";
             } else if (membre.accident && membre.nombreAccident > 2) {
+                return refus;
+            }
+        } else if (membre.datePermis <= 2) {
+            if (!membre.accident && membre.nombreAccident == 0) {
+                membre.tarif = tarifs[3];
+                return "vous avez accès au tarif Orange";
+            } else if (membre.accident && membre.nombreAccident == 1) {
+                membre.tarif = tarifs[4];
+                return "vous avez accès au tarif Rouge";
+
+            } else {
                 return refus;
             }
         }
