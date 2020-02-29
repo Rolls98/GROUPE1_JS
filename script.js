@@ -1,11 +1,11 @@
 var client = {
-    age: 26,
+    age: 20,
     permis: true,
-    accident: true,
-    datePermis: 3,
+    accident: false,
+    datePermis: 1,
     tarif: "",
-    nombreAccident: ,
-    nbAnne: 10
+    nombreAccident: 0,
+    nbAnne: 0
 };
 
 function Agence(membre) {
